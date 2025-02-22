@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Single+Day&display=swap" rel="stylesheet">
+
+    <title>Deserts</title>
+</head>
+<body>
+<div class="main"> 
+    <h1 class="title-text">Deserts</h1>
+    <div w3-include-html="text.txt"></div>
+    <div class="container">
+        <div class="category" id="category1" value = "category_01">
+            <p>Icecream</p>
+            <p><input type="submit" value="Vanilla" id="vanilla"></p>
+            <p><input type="submit" value="Chocolate" id="chocolate"></p>
+            <p><input type="submit" value="Strawberry" id="strawberry"></p>
+        </div>
+        <div class="category" id="category2" value = "category_02">
+            <p>Waffles</p>
+            <p><input type="submit" value="Pure" id="pure"></p>
+            <p><input type="submit" value="Sugar" id="sugar"></p>
+            <p><input type="submit" value="Syrup" id="syrup"></p>
+        </div>
+        <div class="category" id="category3" value = "category_03">
+            <p>Other</p>
+            <p><input type="submit" value="Coffee" id="coffee"></p>
+            <p><input type="submit" value="Fruit" id="fruit"></p>
+            <p><input type="submit" value="Tea" id="tea"></p>
+        </div>
+        <iframe src = "text.txt" id = "content"></iframe>
+        
+    </div>
+
+
+
+</div>
+
+    <script>
+        $("input").click(function(event){
+            var target = event.currentTarget
+            var category = $(target).parent().parent().attr("value")
+            console.log(target.id)
+            $('#content').attr("src", category + "/" + target.id + "/" + target.id + ".txt")
+        })
+
+        
+    </script>
+</body>
+</html>
